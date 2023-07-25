@@ -19,7 +19,7 @@ const Page = () => {
           userData.append('username', username);
           userData.append('password', password); 
       
-          const response = await axios.post('http://localhost:8000/auth/users/tokens', userData, {
+          const response = await axios.post('https://fastapi-p25o.onrender.com/auth/users/tokens', userData, {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
             },

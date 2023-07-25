@@ -17,12 +17,12 @@ const Page = () => {
     async function registerUser() {
         if(password != '' && password === confPassword){
         try {
-          const userData = {
-            username: username,
-            password: password,
-          };
+            const userData = {
+              username: username,
+              password: password,
+            };
           
-          const response = await axios.post('http://localhost:8000/auth/users', userData);
+          const response = await axios.post('https://fastapi-p25o.onrender.com/auth/users', userData);
       
           console.log('User registered successfully:', response.data);
 
