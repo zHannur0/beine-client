@@ -39,24 +39,24 @@ const Page = () => {
 
 
     return (
-        <div>
-            <div className='text-5xl flex justify-center items-center px-20 pt-5  pb-8 h-[10vh]'>
+        <div className="bg-[#e7ecef]">
+            <div className='text-5xl flex justify-center items-center px-20 pt-5  pb-8 h-[10vh] text-[#03045e]'>
                 <h1>Beine</h1>
             </div>
             <div className="h-[80vh] flex justify-center items-center">
-                <div className="w-1/5 h-2/3 border-2 border-sky-800 rounded-2xl flex flex-col justify-center gap-6 items-center relative">
-                    <h2 className="text-2xl font-semibold">
+                <div className="w-1/5 h-2/3 shadow-lg bg-white rounded-2xl flex flex-col justify-center gap-8 items-center relative">
+                    <h2 className="text-2xl font-semibold text-[#03045e]">
                         Sign up
                     </h2>
                     {/* <input className="bg-transparent border-b-2 border-b-sky-800" placeholder="Email">
                     </input> */}
-                    <input className="bg-transparent border-b-2 border-b-sky-800" placeholder="Username" onChange={e => setUsername(e.target.value)}>
+                    <input className="bg-transparent border-b-2 border-b-sky-800 text-black" placeholder="Username" onChange={e => setUsername(e.target.value)}>
                     </input>
-                    <input className="bg-transparent border-b-2 border-b-sky-800" placeholder="Password" onChange={e => setPassword(e.target.value)}>
+                    <input className="bg-transparent border-b-2 border-b-sky-800 text-black" placeholder="Password" onChange={e => setPassword(e.target.value)}>
                     </input>
-                    <input className="bg-transparent border-b-2 border-b-sky-800" placeholder="Confirm passwod" onChange={e => setConfPassword(e.target.value)}>
+                    <input className="bg-transparent border-b-2 border-b-sky-800 text-black" placeholder="Confirm passwod" onChange={e => setConfPassword(e.target.value)}>
                     </input>
-                    <button className="bg-transparent border-2 border-sky-800 rounded-2xl h-[5vh] w-[10vw]" onClick={registerUser}>
+                    <button className="rounded-2xl rounded-2xl bg-[#03045e] shadow-lg py-2 px-6 text-2xl" onClick={registerUser}>
                         Sign up
                     </button>
                     <p>

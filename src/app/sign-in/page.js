@@ -37,24 +37,24 @@ const Page = () => {
       
 
       return (
-    <div>
-        <div className='text-5xl flex justify-center items-center px-20 pt-5  pb-8 h-[10vh]'>
+    <div className="bg-[#e7ecef]">
+        <div className='text-5xl flex justify-center items-center px-20 pt-5  pb-8 h-[10vh] text-[#03045e]'>
             <h1>Beine</h1>
         </div>
         <div className="h-[80vh] flex justify-center items-center">
-            <div className="w-1/5 h-2/3 border-2 border-sky-800 rounded-2xl flex flex-col justify-center gap-6 items-center relative">
-                <h2 className="text-2xl font-semibold">
+            <div className="w-1/5 h-2/3 rounded-2xl flex flex-col justify-center gap-6 items-center relative shadow-lg bg-white">
+                <h2 className="text-2xl font-semibold text-[#03045e]">
                     Welcome back
                 </h2>
-                <input className="bg-transparent border-b-2 border-b-sky-800" placeholder="Username" onChange={e => setUsername(e.target.value)}>
+                <input className="bg-transparent border-b-2 border-b-[#03045e] text-black" placeholder="Username" onChange={e => setUsername(e.target.value)}>
                 </input>
-                <input className="bg-transparent border-b-2 border-b-sky-800" placeholder="Password" onChange={e => setPassword(e.target.value)}>
+                <input className="bg-transparent border-b-2 border-b-[#03045e] text-black" placeholder="Password" onChange={e => setPassword(e.target.value)}>
 
                 </input>
-                <p>
+                <p className=" text-[#03045e]">
                     Forgot password
                 </p>
-                <button className="bg-transparent border-2 border-sky-800 rounded-2xl h-[5vh] w-[10vw]" onClick={authorizeUser}>
+                <button className="rounded-2xl rounded-2xl bg-[#03045e] shadow-lg py-2 px-6 text-2xl" onClick={authorizeUser}>
                     Sign in
                 </button>
                 <p>
