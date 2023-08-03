@@ -51,13 +51,10 @@ const Page = () => {
                 <input className="bg-transparent border-b-2 border-b-[#03045e] text-black" placeholder="Password" onChange={e => setPassword(e.target.value)}>
 
                 </input>
-                <p className=" text-[#03045e]">
-                    Forgot password
-                </p>
                 <button className="rounded-2xl rounded-2xl bg-[#03045e] shadow-lg py-2 px-6 text-2xl" onClick={authorizeUser}>
                     Sign in
                 </button>
-                <p>
+                <p className="text-[#03045e]">
                     Don't have an account?  <Link href="/sign-up"> Sign up </Link>
                 </p>
             </div>

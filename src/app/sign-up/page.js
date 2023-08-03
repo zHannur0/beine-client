@@ -24,13 +24,18 @@ const Page = () => {
           
           const response = await axios.post('https://fastapi-p25o.onrender.com/auth/users', userData);
       
-          console.log('User registered successfully:', response.data);
+          console.log('User registered successfully:', response.status);
 
-          if(response.status == 200) {
+          if(response.status == 201) {
             router.push('/sign-in')
           }
+         
+          
         } catch (error) {
           console.error('Error registering user:', error.message);
+          if(error.message === "Request failed with status code 400") {
+            window.alert("Username already exist!")
+          }
         }
       }else {
         window.alert("Wrong password!!!")
@@ -59,7 +64,7 @@ const Page = () => {
                     <button className="rounded-2xl rounded-2xl bg-[#03045e] shadow-lg py-2 px-6 text-2xl" onClick={registerUser}>
                         Sign up
                     </button>
-                    <p>
+                    <p className="text-[#03045e]">
                         You already have an account?  <Link href="/sign-in"> Sign in </Link>
                     </p>
                 </div>
