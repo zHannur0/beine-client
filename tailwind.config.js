@@ -7,15 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-          'background': "url('/bg.jpg')",
-          'back-gif': "url('/bgGif.gif')",
-          'backcosmo': "url('/cosmo.jpg')",
-      },
+      // backgroundImage: {
+      //   'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      //   'gradient-conic':
+      //     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      //     'background': "url('/bg.jpg')",
+      //     'back-gif': "url('/bgGif.gif')",
+      //     'backcosmo': "url('/cosmo.jpg')",
+      // },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
