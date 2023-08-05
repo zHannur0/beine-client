@@ -1,0 +1,189 @@
+'use client'
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from "react";
+
+import Link from 'next/link';
+
+const Page = () => {
+  const [videos, setVideos] = useState([]);
+  const [currVideo, setCurrVideo] = useState("");
+  const [currVideoId, setCurrVideoId] = useState("");
+  const [a, setA] = useState("");
+  const [currName, setCurrName] = useState("");
+  const [currUsername, setUsername] = useState("");
+
+
+  const apiBaseUrl = 'https://fastapi-p25o.onrender.com/video';
+  const router = useRouter();
+
+  useEffect(() => {
+    const getAllVideos = async () => {
+      try {
+        const response = await axios.get(`${apiBaseUrl}/allvideos`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+
+        setVideos(response.data.videos); // Corrected: Access 'videos' property
+
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      }
+    };
+    getAllVideos();
+  }, [a])
+
+  async function addDislike() {
+    try {
+
+      const requestBody = {
+        video_id: currVideoId,
+      };
+
+      const response = await axios.post(`${apiBaseUrl}/dislike`, requestBody, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+
+      if (response.status === 200) {
+        console.log('Dislike added successfully');
+      }
+    } catch (error) {
+      console.error('Error adding dislike:', error);
+    }
+  };
+
+  async function addLike() {
+    try {
+
+      const requestBody = {
+        video_id: currVideoId,
+      };
+
+      const response = await axios.post(`${apiBaseUrl}/like`, requestBody, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+
+      if (response.status === 200) {
+        console.log('Like added successfully');
+      }
+    } catch (error) {
+      console.error('Error adding like:', error);
+    }
+  };
+
+
+  function navigate() {
+    router.push('/sign-in');
+  }
+
+  function setVideoParam(videoUrl, videoId, name, username) {
+    setCurrVideo(videoUrl);
+    setCurrVideoId(videoId)
+    setCurrName(name);
+    setUsername(username)
+  }
+
+  function listSize(list) {
+    return list ? list.length : 0
+  }
+
+  function reload() {
+    setA(currVideo);
+    setCurrVideo("");
+    setCurrVideoId("");
+    setCurrName("");
+    setUsername("");
+
+  }
+
+  return (
+    <div className="flex flex-col items-center bg-[#e7ecef]">
+      <div className='nav flex justify-between pt-5  pb-8 h-[10vh] w-[65vw] rounded-b-2xl'>
+        <div className='text-4xl text-[#03045e] flex'>
+          <img src="logo2.png" className="" />
+          <h1>
+            <Link href="/main"> Beine </Link>
+
+          </h1>
+        </div>
+        <div className='flex justify-between items-end text-[#03045e]'>
+          <button className='text-2xl h-10 w-32 rounded-2xl border-2 bg-[#e7ecef] shadow-lg' onClick={navigate}>
+            Sign out
+          </button>
+        </div>
+      </div>
+      <div className="flex flex-wrap w-[65vw] justify-start">
+        {videos.map((video, index) => (
+          <div key={index} className='bg-white rounded-lg shadow-md p-4 m-4 w-64'>
+            <img src={video.image} className="w-full object-cover mb-4 rounded-md" onClick={() => setVideoParam(video.video_url, video["_id"], video.title, video.username)}></img>
+            <div className='flex justify-between'>
+
+              <div>
+                <h5 className="text-black text-2xl font-semibold mb-2">{video.title}</h5>
+                <p className="text-black text-xl font-light mb-2">{video.username}</p>
+              </div>
+              <div>
+                <div className='flex'>
+                  <img src="like.png" alt="" className='w-4 h-4 mr-2' />
+                  <p className="text-black text-xs  font-light mb-2"> {listSize(video.like)}</p>
+                </div>
+                <div className='flex'>
+                  <img src="like.png" alt="" className='transform rotate-180 w-4 h-4 mr-2' />
+                  <p className="text-black text-xs font-light mb-2"> {listSize(video.dislike)}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {
+          currVideo ? (
+
+            <div className='w-screen h-screen fixed top-0 left-0 flex justify-center item-center bg-black/70'>
+              <div className="flex items-center ">
+                <div className='items-start bg-white px-5 py-5 rounded-xl'>
+                  <div>
+                    <video src={currVideo} controls className='w-[512px] h-[512px]'></video>
+                  </div>
+                  <div className='flex justify-between'>
+                    <h5 className='text-black text-2xl font-semibold mb-2 mt-2'>{currName}</h5>
+
+                    <div className="flex items-center justify-center">
+
+                      {/* <div className="w-[36px] h-[36px] bg-[#91C8E4] rounded-[50%] mx-3 flex justify-center items-center" onClick={() => addLike()}> */}
+                      <img src="like.png" className="w-[22px] h-[22px] mx-3" alt="" />
+                      {/* </div> */}
+                      {/* <div className="w-[36px] h-[36px] bg-[#749BC2] rounded-[50%] mx-3 flex justify-center items-center" onClick={() => addDislike(currVideoId)}> */}
+                      <img src="like.png" className="w-[22px] h-[22px] transform rotate-180 " alt="" />
+                      {/* </div> */}
+                      <a href={currVideo}>
+                        {/* <div className="w-[36px] h-[36px] bg-[#4682A9] rounded-[50%] flex justify-center items-center"> */}
+                        <img src="download.png" className="w-[24px] h-[24px] mx-3" alt="" />
+                        {/* </div> */}
+                      </a>
+
+                      {/* <div className="w-[36px] h-[36px] bg-[#f1faee] rounded-[50%] flex justify-center items-center" onClick={() => reload()}> */}
+                      <img src='x.png' className='w-[22px] h-[22px]' onClick={() => reload()} ></img>
+                      {/* </div> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) :
+            (
+              <div className=''>
+              </div>
+            )
+        }
+      </div>
+    </div>
+  );
+}
+export default Page;
