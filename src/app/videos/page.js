@@ -9,7 +9,7 @@ const Page = () => {
   const [videos, setVideos] = useState([]);
   const [currVideo, setCurrVideo] = useState("");
   const [currVideoId, setCurrVideoId] = useState("");
-  const [a, setA] = useState("");
+  const [a, setA] = useState(true);
   const [currName, setCurrName] = useState("");
   const [currUsername, setUsername] = useState("");
 
@@ -94,7 +94,7 @@ const Page = () => {
   }
 
   function reload() {
-    setA(currVideo);
+    setA(!a);
     setCurrVideo("");
     setCurrVideoId("");
     setCurrName("");
@@ -105,14 +105,13 @@ const Page = () => {
   return (
     <div className="flex flex-col items-center bg-[#e7ecef]">
       <div className='nav flex justify-between pt-5  pb-8 h-[10vh] w-[65vw] rounded-b-2xl'>
-        <div className='text-4xl text-[#03045e] flex'>
-          <img src="logo2.png" className="" />
+        <div className='text-4xl text-[#03045e] flex items-center'>
+          <img src="logo2.png" className="w-16 h-16" />
           <h1>
             <Link href="/main"> Beine </Link>
-
           </h1>
         </div>
-        <div className='flex justify-between items-end text-[#03045e]'>
+        <div className='flex justify-between items-center text-[#03045e]'>
           <button className='text-2xl h-10 w-32 rounded-2xl border-2 bg-[#e7ecef] shadow-lg' onClick={navigate}>
             Sign out
           </button>
@@ -151,16 +150,19 @@ const Page = () => {
                   <div>
                     <video src={currVideo} controls className='w-[512px] h-[512px]'></video>
                   </div>
-                  <div className='flex justify-between'>
-                    <h5 className='text-black text-2xl font-semibold mb-2 mt-2'>{currName}</h5>
+                  <div className='flex justify-between items-start mt-2'>
+                    <div>
+                      <h5 className='text-black text-2xl font-semibold mb-2'>{currName}</h5>
+                      <p className="text-black text-xl font-light mb-2">{currUsername}</p>
+                    </div>
 
                     <div className="flex items-center justify-center">
 
                       {/* <div className="w-[36px] h-[36px] bg-[#91C8E4] rounded-[50%] mx-3 flex justify-center items-center" onClick={() => addLike()}> */}
-                      <img src="like.png" className="w-[22px] h-[22px] mx-3" alt="" />
+                      <img src="like.png" className="w-[22px] h-[22px] mx-3" alt="" onClick={() => addLike()} />
                       {/* </div> */}
                       {/* <div className="w-[36px] h-[36px] bg-[#749BC2] rounded-[50%] mx-3 flex justify-center items-center" onClick={() => addDislike(currVideoId)}> */}
-                      <img src="like.png" className="w-[22px] h-[22px] transform rotate-180 " alt="" />
+                      <img src="like.png" className="w-[22px] h-[22px] transform rotate-180 " alt="" onClick={() => addDislike()}/>
                       {/* </div> */}
                       <a href={currVideo}>
                         {/* <div className="w-[36px] h-[36px] bg-[#4682A9] rounded-[50%] flex justify-center items-center"> */}

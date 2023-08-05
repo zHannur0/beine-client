@@ -21,11 +21,11 @@ const Page = () => {
   return(
   <div style={{ backgroundImage: "url('back.jpg')", opacity: 0.90 }}  className="flex flex-col items-center bg-[#e7ecef] bg-cover bg-center">
     <div className='nav flex justify-between pt-5  pb-8 h-[10vh] w-[65vw] rounded-b-2xl'>
-      <div className='text-4xl text-[#03045e] flex'>
-        <img src="logo2.png" className=""></img>
+      <div className='text-4xl text-[#03045e] flex items-center'>
+        <img src="logo2.png" className="w-16 h-16"></img>
         <h1>Beine</h1>
       </div>
-      <div className='flex justify-between items-end text-[#03045e]' >
+      <div className='flex justify-between items-center text-[#03045e]' >
         <button className='text-2xl h-10 w-32 rounded-2xl border-2 bg-[#e7ecef] shadow-lg' onClick={navigate}>
           Sign in
         </button>

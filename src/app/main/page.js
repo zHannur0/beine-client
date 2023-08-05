@@ -58,13 +58,13 @@ const Page = () => {
   return (
     <div className="flex flex-col items-center bg-[#e7ecef] bg-cover bg-center">
       <div className='nav flex justify-between pt-5  pb-8 h-[10vh] w-[65vw] rounded-b-2xl'>
-        <div className='text-4xl text-[#03045e] flex'>
-          <img src="logo2.png" className=""></img>
+        <div className='text-4xl text-[#03045e] flex items-center'>
+          <img src="logo2.png" className="w-16 h-16"></img>
           <h1>
             <Link href="/main"> Beine </Link>
           </h1>
         </div>
-        <div className='flex justify-between items-end text-[#03045e]' >
+        <div className='flex justify-between items-center text-[#03045e]' >
           <p className='text-2xl mr-8'>
             <Link href="/videos"> Videos </Link>
           </p>
