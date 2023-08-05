@@ -85,8 +85,16 @@ const Page = () => {
   function setVideoParam(videoUrl, videoId, name, username) {
     setCurrVideo(videoUrl);
     setCurrVideoId(videoId)
-    setCurrName(name);
-    setUsername(username)
+    if(name.length > 12) {
+      setCurrName(name.substring(0,12) + "...");
+    }else {
+      setCurrName(name);
+    }
+    if(username.length > 12) {
+      setUsername(username.substring(0,12) + "...")
+    }else {
+      setCurrName(username);
+    }
   }
 
   function listSize(list) {
@@ -99,7 +107,17 @@ const Page = () => {
     setCurrVideoId("");
     setCurrName("");
     setUsername("");
+  }
 
+  function subString(str) {
+    console.log(str);
+    if(str.length > 12) {
+      setCurrName(str.substring(0, 12) + "...");
+    }else {
+      setCurrName(str);
+    }
+    console.log(str);
+    return str
   }
 
   return (
@@ -124,8 +142,8 @@ const Page = () => {
             <div className='flex justify-between'>
 
               <div>
-                <h5 className="text-black text-2xl font-semibold mb-2">{video.title}</h5>
-                <p className="text-black text-xl font-light mb-2">{video.username}</p>
+                <h5 className="text-black text-2xl font-semibold mb-2">{(video.title.length > 12) ? video.title.substring(0, 12) + "..." : video.title}</h5>
+                <p className="text-black text-xl font-light mb-2">{(video.username.length > 12) ? video.username.substring(0, 12) + "..." : video.username}</p>
               </div>
               <div>
                 <div className='flex'>

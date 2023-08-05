@@ -65,7 +65,7 @@ const Page = () => {
                         Sign up
                     </button>
                     <p className="text-[#03045e]">
-                        You already have an account?  <Link href="/sign-in"> Sign in </Link>
+                        You already have an account?  <Link href="/sign-in" className="text-pink-500"> Sign in </Link>
                     </p>
                 </div>
             </div>

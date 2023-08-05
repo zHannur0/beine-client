@@ -55,7 +55,7 @@ const Page = () => {
                     Sign in
                 </button>
                 <p className="text-[#03045e]">
-                    Don't have an account?  <Link href="/sign-up"> Sign up </Link>
+                    Don't have an account?  <Link href="/sign-up" className="text-pink-500"> Sign up </Link>
                 </p>
             </div>
         </div>
