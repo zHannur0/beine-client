@@ -166,7 +166,7 @@ const Page = () => {
               <div className="flex items-center ">
                 <div className='items-start bg-white px-5 py-5 rounded-xl'>
                   <div>
-                    <video src={currVideo} controls muted className='w-[512px] h-[512px] xs:w-[256px] xs:h-[256px]'></video>
+                    <video src={currVideo} controls className='w-[512px] h-[512px] xs:w-[256px] xs:h-[256px]'></video>
                   </div>
                   <div className='flex justify-between items-start mt-2'>
                     <div>
