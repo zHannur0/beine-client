@@ -15,6 +15,9 @@ module.exports = {
       //     'back-gif': "url('/bgGif.gif')",
       //     'backcosmo': "url('/cosmo.jpg')",
       // },
+      screens: {
+        'xs':  {'max': '480px'},  // Customize the small screen breakpoint
+      }
     },
   },
   plugins: [require("daisyui")],
