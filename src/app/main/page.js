@@ -34,10 +34,7 @@ const Page = () => {
       const requestBody = {
         prompt: prompt,
       };
-      if(prompt==="") {
-        window.alert("Something went wrong! Try again!")
-        return;
-      }
+
         setLoading(true);
         const response = await axios.post('https://fastapi-p25o.onrender.com/video/newvideo', requestBody, {
           headers: {
