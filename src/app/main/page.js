@@ -52,6 +52,7 @@ const Page = () => {
     } catch (error) {
       console.error('Error sending video generation request:', error.message);
       setLoading(false)
+      window.alert("Something went wrong! Try again!")
     }
   }
 
@@ -65,29 +66,29 @@ const Page = () => {
           </h1>
         </div>
         <div className='flex justify-between items-center text-[#03045e]' >
-          <p className='text-2xl mr-8 xs:text-sm xs:mr-4'>
+          <p className='text-2xl mr-8 xs:text-sm xs:mr-1'>
             <Link href="/videos"> Videos </Link>
           </p>
-          <button className='text-2xl h-10 w-32 rounded-2xl border-2 bg-[#e7ecef] shadow-lg xs:text-sm xs:h-4 xs:w-16' onClick={signOut}>
+          <button className='text-2xl py-1 px-4 rounded-2xl border-2 bg-[#e7ecef] shadow-lg xs:text-sm  xs:px-2' onClick={signOut}>
             Sign out
           </button>
         </div>
       </div>
 
-      <div className="h-[80vh] flex justify-center items-center w-[65vw] rounded-2xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-[#EBECF1] xs:flex-col xs:gap-7  p-4">
+      <div className="h-[80vh] flex justify-center items-center w-[65vw] rounded-2xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-[#EBECF1] xs:flex-col xs:gap-7 xs:w-full xs:shadow-none xs:justify-start xs:pt-28 p-4">
 
         <div className="flex flex-col gap-10 justify-center items-center w-[50%] xs:w-full xs:justify-between">
-            <div className="w-[70%] flex items-start">
-              <p className="text-[#8338ec] text-2xl font-semibold xs:text-base xs:text-center">
+            <div className="w-[60%] flex items-start">
+              <p className="text-[#0d3b66] text-xl font-semibold xs:text-base xs:text-center">
                 Enter a topic or question and get an answer in 1-2 minutes!
               </p>
             </div>
-            <div className="h-1/3 rounded-2xl flex flex-col justify-center gap-6 items-center xs:gap-2">
+            <div className="h-1/3 rounded-2xl flex flex-col justify-center gap-6 items-center xs:gap-4">
               <input className=" rounded-2xl h-1/4 p-3 bg-white text-black xs:w-2/3 xs:h-[30px] " placeholder="Write your topic here" onChange={e => setPrompt(e.target.value)}>
               </input>
               {
                 !isLoading ? (
-                        <button className="text-2xl py-2 px-4 rounded-2xl bg-[#03045e] shadow-lg xs:text-xs xs:py-1" onClick={uploadVideo}>
+                        <button className="text-xl py-1 px-2 rounded-2xl bg-[#03045e] shadow-lg xs:text-xs xs:py-1" onClick={uploadVideo}>
                           Submit
                         </button>
                     ) :
