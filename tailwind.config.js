@@ -16,7 +16,7 @@ module.exports = {
       //     'backcosmo': "url('/cosmo.jpg')",
       // },
       screens: {
-        'xs':  {'max': '480px'},  // Customize the small screen breakpoint
+        'xs':  {'max': '550px'},  // Customize the small screen breakpoint
       }
     },
   },
