@@ -34,18 +34,21 @@ const Page = () => {
       const requestBody = {
         prompt: prompt,
       };
-      if(prompt) {
+      if(prompt==="") {
+        window.alert("Something went wrong! Try again!")
+        return;
+      }
         setLoading(true);
         const response = await axios.post('https://fastapi-p25o.onrender.com/video/newvideo', requestBody, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
-      }
+
       console.log('Video generation request successful:', response.data);
 
 
-      if (response.status == 200) {
+      if (response.status === 200) {
         setVideoUrl(response.data.link);
         setLoading(false);
       }
