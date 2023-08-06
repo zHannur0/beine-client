@@ -34,14 +34,14 @@ const Page = () => {
       const requestBody = {
         prompt: prompt,
       };
-
-      setLoading(true);
-      const response = await axios.post('https://fastapi-p25o.onrender.com/video/newvideo', requestBody, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-
+      if(prompt) {
+        setLoading(true);
+        const response = await axios.post('https://fastapi-p25o.onrender.com/video/newvideo', requestBody, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+      }
       console.log('Video generation request successful:', response.data);
 
 
@@ -117,7 +117,7 @@ const Page = () => {
                 {/*</div>*/}
               </div>
               <div className="w-[512px]  h-[512px] shadow-lg rounded-2xl relative xs:w-[256px] xs:h-[256px]">
-                <video src={videoUrl} controls className="w-full h-full rounded-2xl "></video>
+                <video src={videoUrl} controls muted className="w-full h-full rounded-2xl "></video>
               </div>
 
             </div>

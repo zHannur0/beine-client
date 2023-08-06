@@ -18,7 +18,7 @@ const Page = () => {
         if(password != '' && password === confPassword){
         try {
             const userData = {
-              username: username,
+              username: username.trim(),
               password: password,
             };
           

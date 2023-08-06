@@ -16,7 +16,7 @@ const Page = () => {
         try {
           const userData = new URLSearchParams();
           userData.append('grant_type', 'password');
-          userData.append('username', username);
+          userData.append('username', username.trim());
           userData.append('password', password); 
       
           const response = await axios.post('https://fastapi-p25o.onrender.com/auth/users/tokens', userData, {
