@@ -123,35 +123,36 @@ const Page = () => {
   return (
     <div className="flex flex-col items-center bg-[#e7ecef]">
       <div className='nav flex justify-between pt-5  pb-8 h-[10vh] w-[65vw] rounded-b-2xl'>
-        <div className='text-4xl text-[#03045e] flex items-center'>
-          <img src="logo2.png" className="w-16 h-16" />
+        <div className='text-4xl xs:text-base text-[#03045e] flex items-center'>
+          <img src="logo2.png" className="w-16 h-16  xs:w-12 xs:h-12" />
           <h1>
             <Link href="/main"> Beine </Link>
           </h1>
         </div>
         <div className='flex justify-between items-center text-[#03045e]'>
-          <button className='text-2xl h-10 w-32 rounded-2xl border-2 bg-[#e7ecef] shadow-lg' onClick={navigate}>
+          <button className='text-2xl py-1 px-4 rounded-2xl border-2 bg-[#e7ecef] shadow-lg xs:text-sm  xs:px-2' onClick={navigate}>
             Sign out
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap w-[65vw] justify-start">
+      <div className="flex flex-wrap w-[65vw] justify-start xs:w-[90vw] xs:justify-center">
+
         {videos.map((video, index) => (
-          <div key={index} className='bg-white rounded-lg shadow-md p-4 m-4 w-64'>
+          <div key={index} className='bg-white rounded-lg shadow-md p-4 m-4 w-64 xs:w-32'>
             <img src={video.image} className="w-full object-cover mb-4 rounded-md" onClick={() => setVideoParam(video.video_url, video["_id"], video.title, video.username)}></img>
             <div className='flex justify-between'>
 
               <div>
-                <h5 className="text-black text-2xl font-semibold mb-2">{(video.title.length > 12) ? video.title.substring(0, 12) + "..." : video.title}</h5>
-                <p className="text-black text-xl font-light mb-2">{(video.username.length > 12) ? video.username.substring(0, 12) + "..." : video.username}</p>
+                <h5 className="text-black text-2xl font-semibold mb-2 xs:text-xs">{(video.title.length > 8) ? video.title.substring(0, 8) + "..." : video.title}</h5>
+                <p className="text-black text-xl font-light mb-2 xs:text-sm xs:mb-0">{(video.username.length > 8) ? video.username.substring(0, 8) + "..." : video.username}</p>
               </div>
               <div>
-                <div className='flex'>
-                  <img src="like.png" alt="" className='w-4 h-4 mr-2' />
+                <div className='flex items-center'>
+                  <img src="like.png" alt="" className='w-4 h-4 mr-2 xs:w-3 xs:h-3' />
                   <p className="text-black text-xs  font-light mb-2"> {listSize(video.like)}</p>
                 </div>
-                <div className='flex'>
-                  <img src="like.png" alt="" className='transform rotate-180 w-4 h-4 mr-2' />
+                <div className='flex items-center'>
+                  <img src="like.png" alt="" className='transform rotate-180 w-4 h-4 mr-2 xs:w-3 xs:h-3' />
                   <p className="text-black text-xs font-light mb-2"> {listSize(video.dislike)}</p>
                 </div>
               </div>
@@ -161,12 +162,11 @@ const Page = () => {
 
         {
           currVideo ? (
-
             <div className='w-screen h-screen fixed top-0 left-0 flex justify-center item-center bg-black/70'>
               <div className="flex items-center ">
                 <div className='items-start bg-white px-5 py-5 rounded-xl'>
                   <div>
-                    <video src={currVideo} controls className='w-[512px] h-[512px]'></video>
+                    <video src={currVideo} controls className='w-[512px] h-[512px] xs:w-[256px] xs:h-[256px]'></video>
                   </div>
                   <div className='flex justify-between items-start mt-2'>
                     <div>

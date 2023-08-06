@@ -38,11 +38,11 @@ const Page = () => {
 
       return (
     <div className="bg-[#e7ecef]">
-        <div className='text-5xl flex justify-center items-center px-20 pt-5  pb-8 h-[10vh] text-[#03045e]'>
-            <h1>Beine</h1>
+        <div className='text-5xl flex justify-center items-center px-20 pt-5  pb-8 h-[10vh] text-[#03045e] xs:text-3xl'>
+            <Link href="/"> Beine </Link>
         </div>
         <div className="h-[80vh] flex justify-center items-center">
-            <div className="w-1/5 h-2/3 rounded-2xl flex flex-col justify-center gap-6 items-center relative shadow-lg bg-white">
+            <div className="w-1/5 h-2/3 rounded-2xl flex flex-col justify-center gap-6 items-center relative shadow-lg bg-white xs:w-4/5">
                 <h2 className="text-2xl font-semibold text-[#03045e]">
                     Welcome back
                 </h2>

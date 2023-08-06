@@ -57,7 +57,7 @@ const Page = () => {
   }
 
   return (
-    <div className="flex flex-col items-center bg-[#e7ecef] bg-cover bg-center">
+    <div style={{ backgroundImage: "url('back.jpg')", opacity: 0.90 }} className="flex flex-col items-center bg-[#e7ecef] bg-cover bg-center">
       <div className='nav flex justify-between pt-5 pb-8 h-[10vh] w-[65vw] rounded-b-2xl'>
         <div className='text-4xl xs:text-base text-[#03045e] flex items-center'>
           <img src="logo2.png" className="w-16 h-16 xs:w-12 xs:h-12"></img>
@@ -75,7 +75,7 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="h-[80vh] flex justify-center items-center w-[65vw] rounded-2xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-[#EBECF1] xs:flex-col xs:gap-7 xs:w-full xs:shadow-none xs:justify-start xs:pt-28 p-4">
+      <div className="h-[80vh] flex justify-center items-center w-[65vw] rounded-2xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-[#EBECF1] xs:flex-col xs:gap-7 xs:w-full xs:shadow-none xs:bg-transparent xs:justify-start xs:pt-16 p-4">
 
         <div className="flex flex-col gap-10 justify-center items-center w-[50%] xs:w-full xs:justify-between">
             <div className="w-[60%] flex items-start">
@@ -116,17 +116,17 @@ const Page = () => {
                 {/* <img src="Frame.png" className = "w-[48px]  h-[48px] transform rotate-180" alt="" />*/}
                 {/*</div>*/}
               </div>
-              <div className="w-[512px]  h-[512px] shadow-lg rounded-2xl relative xs:w-[200px] xs:h-[200px]">
+              <div className="w-[512px]  h-[512px] shadow-lg rounded-2xl relative xs:w-[256px] xs:h-[256px]">
                 <video src={videoUrl} controls className="w-full h-full rounded-2xl "></video>
               </div>
 
             </div>
 
           ) : (
-            <div className="w-[512px]  h-[512px] shadow-lg rounded-2xl relative xs:w-[200px] xs:h-[200px]">
+            <div className="w-[512px]  h-[512px] shadow-lg rounded-2xl relative xs:w-[256px] xs:h-[256px]">
               <img src="\accets\tv-static.gif" className="w-full h-full rounded-2xl opacity-30"></img>
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-                <span className="text-white text-3xl font-semibold  py-2 px-5 rounded-2xl opacity-80 xs:text-sm">Your future video will be here.</span>
+                <span className="text-[#4a4e69] text-3xl font-semibold  py-2 px-5 rounded-2xl opacity-80 xs:text-sm">Your future video will be here.</span>
               </div>
             </div>
           )
