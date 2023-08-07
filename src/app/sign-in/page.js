@@ -42,8 +42,8 @@ const Page = () => {
             <Link href="/"> Beine </Link>
         </div>
         <div className="h-[80vh] flex justify-center items-center">
-            <div className="w-1/5 h-2/3 rounded-2xl flex flex-col justify-center gap-6 items-center relative shadow-lg bg-white xs:w-4/5">
-                <h2 className="text-2xl font-semibold text-[#03045e]">
+            <div className="w-1/5 h-2/3 rounded-2xl flex flex-col justify-center gap-6 items-center relative shadow-lg bg-white xs:w-4/5 xs:py-12">
+                <h2 className="text-2xl font-semibold text-[#03045e] xs:text-base">
                     Welcome back
                 </h2>
                 <input className="bg-transparent border-b-2 border-b-[#03045e] text-black" placeholder="Username" onChange={e => setUsername(e.target.value)}>
@@ -51,7 +51,7 @@ const Page = () => {
                 <input className="bg-transparent border-b-2 border-b-[#03045e] text-black" placeholder="Password" onChange={e => setPassword(e.target.value)}>
 
                 </input>
-                <button className="rounded-2xl rounded-2xl bg-[#03045e] shadow-lg py-2 px-6 text-2xl" onClick={authorizeUser}>
+                <button className="rounded-2xl rounded-2xl bg-[#03045e] shadow-lg py-2 px-6 text-2xl xs:py-1 xs:px-4" onClick={authorizeUser}>
                     Sign in
                 </button>
                 <p className="text-[#03045e]">
