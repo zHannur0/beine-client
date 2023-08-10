@@ -161,7 +161,7 @@ const Page = () => {
                     <video src={currVideo} controls className='w-[512px] h-[512px] xs:w-[256px] xs:h-[256px]'></video>
                   </div>
                   <div className='flex justify-between items-start mt-2'>
-                    <div>
+                    <div className="w-[80%]">
                       <h5 className='text-black text-2xl font-semibold mb-2 w-[80%]'>{currName}</h5>
                       <p className="text-black text-xl font-light mb-2 w-[80%]">{currUsername}</p>
                     </div>

@@ -125,7 +125,7 @@ const Page = () => {
               {
                 !isLoading ? (
                         <div>
-                          <button className="text-xl py-1 px-2 rounded-2xl bg-[#03045e] shadow-lg xs:text-xs xs:py-1" onClick={uploadVideo}>
+                          <button className="text-xl py-1 px-2 rounded-2xl bg-[#03045e] shadow-lg xs:text-xs xs:py-1 text-white" onClick={uploadVideo}>
                             {submit}
                           </button>
                         </div>
