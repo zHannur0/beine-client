@@ -12,6 +12,7 @@ const Page = () => {
   const [prompt, setPrompt] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [lang, setLang] = useState("English");
 
   function signOut() {
     localStorage.removeItem('token');
@@ -33,6 +34,7 @@ const Page = () => {
     try {
       const requestBody = {
         prompt: prompt,
+        lang: lang,
       };
 
         setLoading(true);
@@ -84,13 +86,24 @@ const Page = () => {
               </p>
             </div>
             <div className="h-1/3 rounded-2xl flex flex-col justify-center gap-6 items-center xs:gap-4">
-              <input className=" rounded-2xl h-1/4 p-3 bg-white text-black xs:w-2/3 xs:h-[30px] " placeholder="Write your topic here" onChange={e => setPrompt(e.target.value)}>
-              </input>
+              <div className="flex items-center gap-4">
+                <input className=" rounded-2xl h-1/4 p-3 bg-white text-black xs:w-2/3 xs:h-[30px] " placeholder="Write your topic here" onChange={e => setPrompt(e.target.value)}>
+                </input>
+                  <label className="swap swap-flip text-4xl">
+                    {/* this hidden checkbox controls the state */}
+                    <input type="checkbox" />
+                    <div className="swap-on" onClick={() => setLang("English")}>🇰🇿</div>
+                    <div className="swap-off" onClick={() => setLang("Қазақ")}>🇬🇧󠁧</div>
+                  </label>
+              </div>
               {
                 !isLoading ? (
-                        <button className="text-xl py-1 px-2 rounded-2xl bg-[#03045e] shadow-lg xs:text-xs xs:py-1" onClick={uploadVideo}>
-                          Submit
-                        </button>
+                        <div>
+                          <button className="text-xl py-1 px-2 rounded-2xl bg-[#03045e] shadow-lg xs:text-xs xs:py-1" onClick={uploadVideo}>
+                            Submit
+                          </button>
+                        </div>
+
                     ) :
                     (
                         <span className="loading loading-ball loading-lg text-[#03045e]"></span>
