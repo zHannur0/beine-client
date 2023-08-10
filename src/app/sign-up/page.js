@@ -60,9 +60,9 @@ const Page = () => {
                     </input> */}
                     <input className="bg-transparent border-b-2 border-b-sky-800 text-black" placeholder="Username" onChange={e => setUsername(e.target.value)}>
                     </input>
-                    <input className="bg-transparent border-b-2 border-b-sky-800 text-black" placeholder="Password" onChange={e => setPassword(e.target.value)}>
+                    <input className="bg-transparent border-b-2 border-b-sky-800 text-black" placeholder="Password" type="password" onChange={e => setPassword(e.target.value)}>
                     </input>
-                    <input className="bg-transparent border-b-2 border-b-sky-800 text-black" placeholder="Confirm passwod" onChange={e => setConfPassword(e.target.value)}>
+                    <input className="bg-transparent border-b-2 border-b-sky-800 text-black" placeholder="Confirm passwod" type="password" onChange={e => setConfPassword(e.target.value)}>
                     </input>
                     <button className="rounded-2xl rounded-2xl bg-[#03045e] shadow-lg py-2 px-6 text-2xl" onClick={registerUser}>
                         Sign up

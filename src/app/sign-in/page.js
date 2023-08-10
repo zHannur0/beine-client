@@ -17,8 +17,9 @@ const Page = () => {
           const userData = new URLSearchParams();
           userData.append('grant_type', 'password');
           userData.append('username', username.trim());
-          userData.append('password', password); 
-      
+          userData.append('password', password);
+
+
           const response = await axios.post('https://fastapi-p25o.onrender.com/auth/users/tokens', userData, {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
@@ -48,7 +49,7 @@ const Page = () => {
                 </h2>
                 <input className="bg-transparent border-b-2 border-b-[#03045e] text-black" placeholder="Username" onChange={e => setUsername(e.target.value)}>
                 </input>
-                <input className="bg-transparent border-b-2 border-b-[#03045e] text-black" placeholder="Password" onChange={e => setPassword(e.target.value)}>
+                <input className="bg-transparent border-b-2 border-b-[#03045e] text-black" placeholder="Password" type="password" onChange={e => setPassword(e.target.value)}>
 
                 </input>
                 <button className="rounded-2xl rounded-2xl bg-[#03045e] shadow-lg py-2 px-6 text-2xl xs:py-1 xs:px-4" onClick={authorizeUser}>

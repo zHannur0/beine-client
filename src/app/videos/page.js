@@ -85,16 +85,8 @@ const Page = () => {
   function setVideoParam(videoUrl, videoId, name, username) {
     setCurrVideo(videoUrl);
     setCurrVideoId(videoId)
-    if(name.length > 12) {
-      setCurrName(name.substring(0,12) + "...");
-    }else {
-      setCurrName(name);
-    }
-    if(username.length > 12) {
-      setUsername(username.substring(0,12) + "...")
-    }else {
-      setCurrName(username);
-    }
+    setCurrName(name);
+    setUsername(username);
   }
 
   function listSize(list) {
@@ -170,26 +162,26 @@ const Page = () => {
                   </div>
                   <div className='flex justify-between items-start mt-2'>
                     <div>
-                      <h5 className='text-black text-2xl font-semibold mb-2'>{currName}</h5>
-                      <p className="text-black text-xl font-light mb-2">{currUsername}</p>
+                      <h5 className='text-black text-2xl font-semibold mb-2 w-[80%]'>{currName}</h5>
+                      <p className="text-black text-xl font-light mb-2 w-[80%]">{currUsername}</p>
                     </div>
 
                     <div className="flex items-center justify-center">
 
-                      {/* <div className="w-[36px] h-[36px] bg-[#91C8E4] rounded-[50%] mx-3 flex justify-center items-center" onClick={() => addLike()}> */}
-                      <img src="like.png" className="w-[22px] h-[22px] mx-3" alt="" onClick={() => addLike()} />
-                      {/* </div> */}
-                      {/* <div className="w-[36px] h-[36px] bg-[#749BC2] rounded-[50%] mx-3 flex justify-center items-center" onClick={() => addDislike(currVideoId)}> */}
-                      <img src="like.png" className="w-[22px] h-[22px] transform rotate-180 " alt="" onClick={() => addDislike()}/>
-                      {/* </div> */}
+                       <div className="w-[36px] h-[36px] hover:bg-success rounded-[50%] flex justify-center items-center" onClick={() => addLike()}>
+                      <img src="like.png" className="w-[22px] h-[22px] mx-3" alt="" />
+                       </div>
+                       <div className="w-[36px] h-[36px] rounded-[50%] flex justify-center items-center hover:bg-red-500" onClick={() => addDislike(currVideoId)}>
+                      <img src="like.png" className="w-[22px] h-[22px] transform rotate-180 " alt=""/>
+                       </div>
                       <a href={currVideo}>
-                        {/* <div className="w-[36px] h-[36px] bg-[#4682A9] rounded-[50%] flex justify-center items-center"> */}
+                         <div className="w-[36px] h-[36px] rounded-[50%] flex justify-center items-center hover:bg-success">
                         <img src="download.png" className="w-[24px] h-[24px] mx-3" alt="" />
-                        {/* </div> */}
+                         </div>
                       </a>
 
                       {/* <div className="w-[36px] h-[36px] bg-[#f1faee] rounded-[50%] flex justify-center items-center" onClick={() => reload()}> */}
-                      <img src='x.png' className='w-[22px] h-[22px]' onClick={() => reload()} ></img>
+                      <img src='x.png' className='w-[22px] h-[22px] hover:bg-orange-500' onClick={() => reload()} ></img>
                       {/* </div> */}
                     </div>
                   </div>
